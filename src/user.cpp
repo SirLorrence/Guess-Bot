@@ -15,7 +15,7 @@ void GetInput(){
         std::cout << "Try again"<< std::endl;
 
         std::cin.clear(); // gets rid of the failure state
-        std::cin.ignore(10000, '\n'); // discard 'bad' character(s)
+        std::cin.ignore(10000, '\n'); // discard 'bad' character(s) <- this is odd that you have to included this
 
         GetInput();
     }

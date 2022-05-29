@@ -35,10 +35,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Bot.h" />
 		<Unit filename="include/user.h" />
 		<Unit filename="main.cpp">
 			<Option virtualFolder="src/" />
 		</Unit>
+		<Unit filename="src/Bot.cpp" />
 		<Unit filename="src/user.cpp" />
 		<Extensions />
 	</Project>
