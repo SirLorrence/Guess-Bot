@@ -1,4 +1,5 @@
-#include "user.h"
+#include "../include/user.h"
+#include <limits>
 #include <iostream>
 
 // User option will be:
@@ -6,21 +7,23 @@
 
 
 
-void GetInput(){
-    int option{};
+int GetInput(){
+  while(true){
     std::cout << "Select Option: ";
+    int option{};
     std::cin >> option;
-    if(std::cin.fail() || !CheckInput(option)){
-        std::cout<< option << std::endl;
-        std::cout << "Try again"<< std::endl;
-
-        std::cin.clear(); // gets rid of the failure state
-        std::cin.ignore(10000, '\n'); // discard 'bad' character(s) <- this is odd that you have to included this
-
-        GetInput();
+      // if the extraction fails or is overloaded
+      if(!CheckInput(option) || !std::cin){
+        std::cin.clear(); // clears the failure state
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // removes any character up to the next \n
+        std::cerr << "Invalided Input, Try Again.\n";
+      }
+    else{
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return option;
+      }
     }
 }
-
 
 bool CheckInput(int x){
     if(x > 3 || x < 1)

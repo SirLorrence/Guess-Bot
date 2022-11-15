@@ -1,5 +1,5 @@
-#include "user.h"
-#include "Bot.h"
+#include "include/user.h"
+#include "include/bot.h"
 #include <iostream>
 
 void ShowUserOptions(){
@@ -9,11 +9,12 @@ std::cout<< "================================================== \n";
 }
 
 
-int main()
-{
-    int x{};
-    std::cin >> x;
-    feedback(x);
+int main(){
+std::cout << "Test\n";
+int x {GetInput()};
+
+
+
 
     return 0;
 }
